@@ -1,4 +1,4 @@
-name: ci/cd piplelane
+name: ci/cd deploy remed
 
 on:
     push:
