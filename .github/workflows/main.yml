@@ -6,26 +6,26 @@ on:
       - deployment
 
 jobs:
-  build-and-push-docker:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout the code
-        uses: actions/checkout@v2
-      - name: Create env file
-        run: |
-          echo "${{ secrets.ENV }}" >> .env
-      - name: Build Docker image
-        run: docker build -t mutia181/eco_miniproject:2.2.2 .
-      - name: Docker Hub login
-        uses: docker/login-action@v1
-        with: 
-          username: ${{ secrets.DOCKER_USER }}
-          password: ${{ secrets.DOCKER_TOKEN }}
-      - name: Push Docker image
-        run: docker push mutia181/eco_miniproject:2.2.2
+  # build-and-push-docker:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout the code
+  #       uses: actions/checkout@v2
+  #     - name: Create env file
+  #       run: |
+  #         echo "${{ secrets.ENV }}" >> .env
+  #     - name: Build Docker image
+  #       run: docker build -t mutia181/eco_miniproject:2.2.2 .
+  #     - name: Docker Hub login
+  #       uses: docker/login-action@v1
+  #       with: 
+  #         username: ${{ secrets.DOCKER_USER }}
+  #         password: ${{ secrets.DOCKER_TOKEN }}
+  #     - name: Push Docker image
+  #       run: docker push mutia181/eco_miniproject:2.2.2
 
   deploy:
-    needs: build-and-push-docker
+    # needs: build-and-push-docker
     runs-on: ubuntu-latest
     env:
       IMAGE_URI: 'mutia181/eco_miniproject:2.2.2'
