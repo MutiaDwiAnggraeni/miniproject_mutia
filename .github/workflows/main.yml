@@ -1,4 +1,4 @@
-name: ci/cd deploy remed
+name: ci/cd deploy remed mutia
 
 on:
     push:
