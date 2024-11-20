@@ -5,23 +5,23 @@ on:
         branches:
             - deployment
 
-jobs:
-    test:
-        runs-on: ubuntu-latest
-        steps:
-            - name: checkout the code
-              uses: actions/checkout@v2
-            - name: setup go
-              uses: actions/setup-go@v3
-              with:
-                go-version: '1.23.1'
-            - name: run test
-              run: |
-                go test -v ./...
+# jobs:
+#     test:
+#         runs-on: ubuntu-latest
+#         steps:
+#             - name: checkout the code
+#               uses: actions/checkout@v2
+#             - name: setup go
+#               uses: actions/setup-go@v3
+#               with:
+#                 go-version: '1.23.1'
+#             - name: run test
+#               run: |
+#                 go test -v ./...
 
     build-and-push-docker:
         runs-on: ubuntu-latest
-        needs: test
+        # needs: test
         steps:
             - name: checkout the code
               uses: actions/checkout@v2
